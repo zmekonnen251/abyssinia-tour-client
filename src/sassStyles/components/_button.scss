@@ -19,6 +19,15 @@
 		}
 	}
 
+	&--green {
+		background-color: $color_primary;
+		color: $color_white;
+
+		&::after {
+			background-color: $color_primary;
+		}
+	}
+
 	&:hover {
 		transform: translateY(-0.3rem);
 		box-shadow: 0 1rem 2rem rgba($color_black, 0.2);
