@@ -1,4 +1,5 @@
 .btn {
+	&,
 	&:link,
 	&:visited {
 		text-decoration: none;
@@ -8,6 +9,11 @@
 		border-radius: 10rem;
 		transition: all 0.2s;
 		position: relative;
+
+		//Style for button <button> tag
+
+		border: none;
+		cursor: pointer;
 	}
 
 	&--white {
@@ -28,7 +34,9 @@
 		}
 	}
 
-	&:hover {
+	&:hover,
+	&:focus {
+		outline: none;
 		transform: translateY(-0.3rem);
 		box-shadow: 0 1rem 2rem rgba($color_black, 0.2);
 
@@ -72,7 +80,9 @@
 		padding: 3px;
 	}
 
-	&:hover {
+	&:hover,
+	&:focus {
+		outline: none;
 		background-color: $color_primary;
 		color: $color_white;
 		box-shadow: 0 1rem 2rem rgba($color_black, 0.15);

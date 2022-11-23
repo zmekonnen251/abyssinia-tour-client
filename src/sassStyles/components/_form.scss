@@ -1,0 +1,100 @@
+@import '../../sassStyles/abstracts/abstracts.scss';
+.form {
+	&__group {
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+	}
+
+	&__input {
+		font-size: 1.5rem;
+		font-family: inherit;
+		color: inherit;
+		padding: 1.5rem 2rem;
+		border-radius: 2px;
+		background-color: rgba($color_white, 0.5);
+		border: none;
+		border-bottom: 3px solid transparent;
+		width: 90%;
+		display: block;
+		transition: all 0.5s;
+
+		&:focus {
+			outline: none;
+			box-shadow: 0 1rem 2rem rgba($color_black, 0.1);
+			border-bottom: 3px solid $color_primary;
+		}
+
+		&:focus:invalid {
+			border-bottom: 3px solid $color_secondary_dark;
+		}
+
+		&::-webkit-input-placeholder {
+			color: $color_grey_dark_2;
+		}
+	}
+
+	&__label {
+		font-size: 1.2rem;
+		font-weight: 700;
+		margin-left: 2rem;
+		margin-top: 0.7rem;
+		display: block;
+
+		transition: all 0.3s;
+	}
+
+	&__input:placeholder-shown + &__label {
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-4rem);
+	}
+
+	&__radio {
+		&-group {
+			width: 50%;
+			display: inline-block;
+		}
+
+		&-input {
+			display: none;
+		}
+
+		&-label {
+			font-size: $default_font_size;
+			cursor: pointer;
+			position: relative;
+			padding-left: 4rem;
+		}
+
+		&-button {
+			height: 3rem;
+			width: 3rem;
+			border: 5px solid $color_primary;
+			border-radius: 50%;
+			display: inline-block;
+			position: absolute;
+			left: 0;
+			top: -0.5rem;
+
+			&::after {
+				content: '';
+				display: block;
+				height: 1.5rem;
+				width: 1.5rem;
+				border-radius: 50%;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				background-color: $color_primary;
+				opacity: 0;
+				transition: opacity 0.3s;
+			}
+		}
+	}
+
+	&__radio-input:checked + &__radio-label &__radio-button::after {
+		opacity: 1;
+	}
+}
