@@ -4,6 +4,7 @@ import About from '../components/About/About';
 import Features from '../components/Features/Features';
 import Tours from '../components/Tours/Tours';
 import Booking from '../components/Booking/Booking';
+import Footer from '../components/Footer/Footer';
 import { FeatureData, TourData } from '../../src/types';
 import tour1Img from '../assets/img/nat-5.jpg';
 import tour2Img from '../assets/img/nat-6.jpg';
@@ -80,14 +81,17 @@ const tours: TourData[] = [
 
 const Home = () => {
 	return (
-		<main>
-			<Header />
-			<About />
-			<Features features={features} />
-			<Tours tours={tours} />
-			<Stories />
-			<Booking />
-		</main>
+		<>
+			<main>
+				<Header />
+				<About />
+				<Features features={features} />
+				<Tours tours={tours} />
+				<Stories />
+				<Booking />
+			</main>
+			<Footer />
+		</>
 	);
 };
 
