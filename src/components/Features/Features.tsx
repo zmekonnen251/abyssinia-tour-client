@@ -1,60 +1,24 @@
 import React from 'react';
+import Feature from './Feature/Feature';
+import styles from './Features.module.scss';
+import { FeatureData } from '../../types';
 
-const Features = () => {
+type FeaturesProps = {
+	features: FeatureData[];
+};
+
+const Features = ({ features }: FeaturesProps) => {
 	return (
-		<section className='section-features'>
+		<section className={styles.sectionFeatures}>
 			<div className='row'>
-				<div className='col-1-of-4'>
-					<div className='feature-box'>
-						<i className='feature-box__icon icon-basic-world'></i>
-						<h3 className='heading-tertiary u_margin_bottom_small'>
-							Explore the world
-						</h3>
-						<p className='feature-box__text'>
-							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea quo
-							delectus.
-						</p>
-					</div>
-				</div>
-
-				<div className='col-1-of-4'>
-					<div className='feature-box'>
-						<i className='feature-box__icon icon-basic-compass'></i>
-						<h3 className='heading-tertiary u_margin_bottom_small'>
-							Meet Nature
-						</h3>
-						<p className='feature-box__text'>
-							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea quo
-							delectus.
-						</p>
-					</div>
-				</div>
-
-				<div className='col-1-of-4'>
-					<div className='feature-box'>
-						<i className='feature-box__icon icon-basic-map'></i>
-						<h3 className='heading-tertiary u_margin_bottom_small'>
-							Find your way
-						</h3>
-						<p className='feature-box__text'>
-							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea quo
-							delectus.
-						</p>
-					</div>
-				</div>
-
-				<div className='col-1-of-4'>
-					<div className='feature-box'>
-						<i className='feature-box__icon icon-basic-heart'></i>
-						<h3 className='heading-tertiary u_margin_bottom_small'>
-							Live healthier life
-						</h3>
-						<p className='feature-box__text'>
-							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea quo
-							delectus.
-						</p>
-					</div>
-				</div>
+				{features.map((feature) => (
+					<Feature
+						key={feature.id}
+						heading={feature.heading}
+						text={feature.text}
+						icon={feature.icon}
+					/>
+				))}
 			</div>
 		</section>
 	);

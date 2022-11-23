@@ -1,13 +1,14 @@
 import React from 'react';
-import logoSrc from '../../img/logo-white.png';
+import logoSrc from '../../assets/img/logo-white.png';
+import styles from './Header.module.scss';
 
 const Header: React.FC = () => {
 	return (
-		<header className='header'>
-			<div className='header__logo-box'>
-				<img src={logoSrc} alt='Logo' className='header__logo' />
+		<header className={styles.header}>
+			<div className={styles.headerLogoBox}>
+				<img src={logoSrc} alt='Logo' className={styles.headerLogo} />
 			</div>
-			<div className='header__text-box'>
+			<div className={styles.headerTextBox}>
 				<h1 className='heading-primary'>
 					<span className='heading-primary--main'>Outdoors</span>
 					<span className='heading-primary--sub'>Is where Life happens</span>

@@ -1,0 +1,34 @@
+@import '../../sassStyles/abstracts/abstracts.scss';
+
+.header {
+	position: relative;
+	height: 95vh;
+	background-image: linear-gradient(
+			to right bottom,
+			rgba($color_primary_light, 0.8),
+			rgba($color_primary_dark, 0.8)
+		),
+		url('../../assets/img/hero.jpg');
+	background-size: cover;
+	background-position: top;
+	-webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+	clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+	&LogoBox {
+		position: absolute;
+		top: 4rem;
+		left: 4rem;
+	}
+
+	&Logo {
+		height: 3.5rem;
+	}
+
+	&TextBox {
+		position: absolute;
+		top: 40%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+	}
+}

@@ -1,12 +1,13 @@
 import React from 'react';
-import imgSrc1 from '../../img/nat-1-large.jpg';
-import imgSrc2 from '../../img/nat-2-large.jpg';
-import imgSrc3 from '../../img/nat-3-large.jpg';
+import imgSrc1 from '../../assets/img/nat-1-large.jpg';
+import imgSrc2 from '../../assets/img/nat-2-large.jpg';
+import imgSrc3 from '../../assets/img/nat-3-large.jpg';
+import styles from './About.module.scss';
 
 const About: React.FC = () => {
 	return (
 		<main className='main'>
-			<section className='section-about'>
+			<section className={styles.sectionAbout}>
 				<div className='u_center_text u_margin_bottom_big'>
 					<h2 className='heading-secondary'>
 						Exiting tours for adventurous people
