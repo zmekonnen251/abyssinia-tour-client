@@ -23,7 +23,7 @@ const Stories = () => {
 
 			<div className='u_center_text u_margin_top_huge'>
 				<a href='#ab' className='btn-text'>
-					Read all stories &rarr;
+					Read all stories &#10132;
 				</a>
 			</div>
 		</section>

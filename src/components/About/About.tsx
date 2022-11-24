@@ -37,7 +37,7 @@ const About: React.FC = () => {
 
 						<a href='#LearnMore' className='btn-text'>
 							{' '}
-							Learn more &rarr;{' '}
+							Learn more &#10132;{' '}
 						</a>
 					</div>
 					<div className='col-1-of-2'>

@@ -36,6 +36,18 @@ const Tour = ({ tour }: TourProps) => {
 			url(${imgCover})`,
 	};
 
+	const headingSpanStyle = {
+		// display: inline-block;
+		backgroundImage: `linear-gradient(
+				to right bottom,
+				${color.light},
+				${color.dark})
+		`,
+		padding: '1rem 1.5rem',
+		WebKitDecorationBreak: 'clone',
+		BoxDecorationBreak: 'clone',
+	};
+
 	const backFaceColorGradient = {
 		backgroundImage: `linear-gradient(
 					to right bottom,
@@ -52,9 +64,7 @@ const Tour = ({ tour }: TourProps) => {
 						&nbsp;
 					</div>
 					<h4 className='card__heading'>
-						<span className='card__heading-span card__heading-span--1'>
-							{name}
-						</span>
+						<span style={headingSpanStyle}>{name}</span>
 					</h4>
 					<div className='card__details'>
 						<ul>

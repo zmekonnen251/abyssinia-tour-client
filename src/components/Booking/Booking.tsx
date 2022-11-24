@@ -63,7 +63,7 @@ const Booking = () => {
 								</div>
 							</div>
 							<div className='form__group'>
-								<button className='btn btn--green'>Next step &rarr;</button>
+								<button className='btn btn--green'>Next step &#10132;</button>
 							</div>
 						</form>
 					</div>
