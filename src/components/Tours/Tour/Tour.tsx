@@ -6,9 +6,10 @@ import { TourData } from '../../../types';
 
 type TourProps = {
 	tour: TourData;
+	onShow: () => void;
 };
 
-const Tour = ({ tour }: TourProps) => {
+const Tour = ({ tour, onShow }: TourProps) => {
 	const {
 		name,
 		price,
@@ -86,9 +87,9 @@ const Tour = ({ tour }: TourProps) => {
 							<p className='card__price-only'>Only</p>
 							<p className='card__price-value'>${price}</p>
 						</div>
-						<a href='#1' className='btn btn--white'>
+						<button onClick={onShow} className='btn btn--white'>
 							Book now!
-						</a>
+						</button>
 					</div>
 				</div>
 			</div>

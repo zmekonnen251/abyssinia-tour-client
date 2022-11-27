@@ -4,7 +4,7 @@ import logoSrc from '../../assets/img/logo-green-2x.png';
 
 const Footer = () => {
 	return (
-		<footer className='footer'>
+		<footer className='footer' id='footer'>
 			<div className='footer__logo-box'>
 				<img src={logoSrc} alt='Full logo' className='footer__logo' />
 			</div>

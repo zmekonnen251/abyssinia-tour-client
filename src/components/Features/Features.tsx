@@ -9,7 +9,7 @@ type FeaturesProps = {
 
 const Features = ({ features }: FeaturesProps) => {
 	return (
-		<section className={styles.sectionFeatures}>
+		<section className={styles.sectionFeatures} id='features'>
 			<div className='row'>
 				{features.map((feature) => (
 					<Feature

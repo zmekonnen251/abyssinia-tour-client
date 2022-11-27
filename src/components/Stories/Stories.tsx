@@ -6,7 +6,7 @@ import bgVideoWebm from '../../assets/img/video.webm';
 
 const Stories = () => {
 	return (
-		<section className={styles.sectionStories}>
+		<section className={styles.sectionStories} id='stories'>
 			<div className='bg-video'>
 				<video className='bg-video__content' autoPlay muted loop>
 					<source src={bgVideoMp4} type='video/mp4' />

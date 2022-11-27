@@ -1,0 +1,80 @@
+@import '../../sassStyles/abstracts/abstracts.scss';
+
+.popup {
+	position: fixed;
+	height: 100vh;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba($color_black, 0.8);
+	z-index: 3000;
+	// opacity: 0;
+	// visibility: hidden;
+	transition: all 0.3s;
+
+	& &__content {
+		@include absCenter;
+		width: 75%;
+		background-color: $color_white;
+		box-shadow: 0 2rem 4rem rgba($color_black, 0.2);
+		border-radius: 3px;
+		display: table;
+		overflow: hidden;
+		// opacity: 1;
+		transform: translate(-50%, -50%);
+		transition: opacity 0.6s 0.3s;
+	}
+
+	&__left {
+		width: 33.333333%;
+		display: table-cell;
+	}
+
+	&__right {
+		width: 66.666667%;
+		display: table-cell;
+		vertical-align: middle;
+		padding: 3rem 5rem;
+	}
+
+	&__img {
+		display: block;
+		width: 100%;
+	}
+
+	&__text {
+		font-size: 1.4rem;
+		margin-bottom: 4rem;
+
+		-moz-column-count: 2;
+		-moz-column-gap: 4rem; //1em=14px - font-size of the text
+		-moz-column-rule: 1px solid $color_grey_light_3;
+
+		column-count: 2;
+		column-gap: 4rem; //1em=14px - font-size of the text
+		column-rule: 1px solid $color_grey_light_3;
+
+		-moz-hyphens: auto;
+		-webkit-hyphens: auto;
+		-ms-hyphens: auto;
+		hyphens: auto;
+	}
+
+	&__close {
+		border: none;
+		padding: 1rem;
+		background: none;
+		color: $color_grey_dark;
+		position: absolute;
+		top: 2.5rem;
+		right: 4rem;
+		font-size: 3rem;
+		text-decoration: none;
+		display: inline-block;
+		cursor: pointer;
+	}
+
+	&:hover {
+		color: $color_primary;
+	}
+}
