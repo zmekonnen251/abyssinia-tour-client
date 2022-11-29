@@ -1,12 +1,11 @@
 import React from 'react';
 import Story from './Story/Story';
-import styles from './Stories.module.scss';
 import bgVideoMp4 from '../../assets/img/video.mp4';
 import bgVideoWebm from '../../assets/img/video.webm';
 
 const Stories = () => {
 	return (
-		<section className={styles.sectionStories} id='stories'>
+		<section className='section-stories' id='stories'>
 			<div className='bg-video'>
 				<video className='bg-video__content' autoPlay muted loop>
 					<source src={bgVideoMp4} type='video/mp4' />

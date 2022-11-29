@@ -1,12 +1,9 @@
-// import React, { useEffect } from 'react';
-
-import './Tour.scss';
-// import card1Src from '../../../assets/img/nat-5.jpg';
+import React from 'react';
 import { TourData } from '../../../types';
 
 type TourProps = {
 	tour: TourData;
-	onShow: () => void;
+	onShow: (tour: TourData) => void;
 };
 
 const Tour = ({ tour, onShow }: TourProps) => {
@@ -87,7 +84,7 @@ const Tour = ({ tour, onShow }: TourProps) => {
 							<p className='card__price-only'>Only</p>
 							<p className='card__price-value'>${price}</p>
 						</div>
-						<button onClick={onShow} className='btn btn--white'>
+						<button onClick={() => onShow(tour)} className='btn btn--white'>
 							Book now!
 						</button>
 					</div>

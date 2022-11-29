@@ -1,6 +1,5 @@
 import React from 'react';
 import Feature from './Feature/Feature';
-import styles from './Features.module.scss';
 import { FeatureData } from '../../types';
 
 type FeaturesProps = {
@@ -9,7 +8,7 @@ type FeaturesProps = {
 
 const Features = ({ features }: FeaturesProps) => {
 	return (
-		<section className={styles.sectionFeatures} id='features'>
+		<section className='section-features' id='features'>
 			<div className='row'>
 				{features.map((feature) => (
 					<Feature

@@ -14,7 +14,9 @@ export type TourData = {
 	price: number;
 	guides: string[];
 	imgCover: string;
+	imgs: string[];
 	summary: string;
+	description: string;
 	color: Color;
 };
 

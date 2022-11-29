@@ -1,5 +1,3 @@
-import React from 'react';
-import './Footer.scss';
 import logoSrc from '../../assets/img/logo-green-2x.png';
 
 const Footer = () => {

@@ -1,5 +1,4 @@
 import React from 'react';
-import './Story.scss';
 import storyImgSrc from '../../../assets/img/nat-8.jpg';
 
 const Story = () => {
