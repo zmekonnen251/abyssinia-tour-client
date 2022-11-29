@@ -16,7 +16,7 @@
 		left: 0;
 		width: 100%;
 		backface-visibility: hidden;
-		border-radius: 3px;
+		border-radius: 6px;
 		box-shadow: 0 1.5rem 4rem rgba($color_black, 0.15);
 		&--front {
 			background-color: $color_white;
@@ -25,13 +25,13 @@
 		&--back {
 			transform: rotateY(180deg);
 
-			&-1 {
-				background-image: linear-gradient(
-					to right bottom,
-					$color_secondary_light,
-					$color_secondary_dark
-				);
-			}
+			// &-1 {
+			// 	background-image: linear-gradient(
+			// 		to right bottom,
+			// 		$color_secondary_light,
+			// 		$color_secondary_dark
+			// 	);
+			// }
 		}
 	}
 
@@ -45,22 +45,20 @@
 
 	//Front side styling
 
-	&__picture {
-		background-size: cover;
-		height: 23rem;
-		background-blend-mode: screen;
-		-webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-		clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+	// &__picture {
+	// 	background-size: cover;
+	// 	height: 23rem;
+	// 	background-blend-mode: screen;
+	// 	-webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+	// 	clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 
-		&--1 {
-			background-image: linear-gradient(
-					to right bottom,
-					$color_secondary_light,
-					$color_secondary_dark
-				),
-				var(--card-image);
-		}
-	}
+	// 	background-image: linear-gradient(
+	// 			to right bottom,
+	// 			$color_secondary_light,
+	// 			$color_secondary_dark
+	// 		),
+	// 		var(--card-image);
+	// }
 
 	&__heading {
 		font-size: 2.8rem;
@@ -139,5 +137,7 @@
 		font-weight: 300;
 	}
 }
+
+//.card:hover .card__side -> transform: rotateY(180deg);
 
 //.card:hover .card__side -> transform: rotateY(180deg);
