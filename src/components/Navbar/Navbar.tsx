@@ -1,40 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import './Navbar.scss';
+import React, { useState } from 'react';
 
-const initialNavStyle = {
-	opacity: 0,
-	width: '0',
-};
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const [navLinkActive, setNavLinkActive] = useState(false);
-	// const [check, setCheck] = useState(false);
-	// const [navStyle, setNavStyle] = useState(initialNavStyle);
-	// const [backGroundColor, setBackGroundColor] = useState(');
 
 	const handleNavShow = () => {
 		setIsMenuOpen(!isMenuOpen);
-		// const root = document.documentElement;
-		// root?.style.setProperty('--scale', 'scale(80)');
-		// root?.style.setProperty('--nav-opacity', '1');
-		// root?.style.setProperty('--nav-width', '100%');
 	};
-
-	useEffect(() => {
-		if (navLinkActive) {
-			// const root = document.documentElement;
-			// root?.style.setProperty('--scale', 'scale(0)');
-			// root?.style.setProperty('--nav-opacity', '0');
-			// root?.style.setProperty('--nav-width', '0');
-			setIsMenuOpen(false);
-			setNavLinkActive(false);
-		}
-	}, [navLinkActive]);
-
-	// console.log(document.getElementById('navlink1'));
-	// const link = document.querySelectorAll('.navigation__link')[0];
-	// document.get;
-	// console.log(link);
 
 	return (
 		<div className='navigation'>
@@ -60,7 +31,7 @@ const Navbar = () => {
 								id='navlink1'
 								href='#about'
 								className='navigation__link'
-								onClick={() => setNavLinkActive(true)}
+								onClick={handleNavShow}
 							>
 								01 &nbsp;About Natours
 							</a>
@@ -69,7 +40,7 @@ const Navbar = () => {
 							<a
 								href='#tours'
 								className='navigation__link'
-								onClick={() => setNavLinkActive(true)}
+								onClick={handleNavShow}
 							>
 								02 &nbsp;Your benefits
 							</a>
@@ -78,7 +49,7 @@ const Navbar = () => {
 							<a
 								href='#tours'
 								className='navigation__link'
-								onClick={() => setNavLinkActive(true)}
+								onClick={handleNavShow}
 							>
 								03 &nbsp;Popular tours
 							</a>
@@ -87,7 +58,7 @@ const Navbar = () => {
 							<a
 								href='#stories'
 								className='navigation__link'
-								onClick={() => setNavLinkActive(true)}
+								onClick={handleNavShow}
 							>
 								04 &nbsp;Stories
 							</a>
@@ -96,7 +67,7 @@ const Navbar = () => {
 							<a
 								href='#book'
 								className='navigation__link'
-								onClick={() => setNavLinkActive(true)}
+								onClick={handleNavShow}
 							>
 								05 &nbsp;Book now
 							</a>
