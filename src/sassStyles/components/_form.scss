@@ -15,10 +15,12 @@
 		background-color: rgba($color_white, 0.5);
 		border: none;
 		border-bottom: 3px solid transparent;
-		width: 90%;
+		width: 100%;
 		display: block;
 		transition: all 0.5s;
-
+		@include respond(tab-port) {
+			width: 100%;
+		}
 		&:focus {
 			outline: none;
 			box-shadow: 0 1rem 2rem rgba($color_black, 0.1);
@@ -54,6 +56,11 @@
 		&-group {
 			width: 50%;
 			display: inline-block;
+
+			@include respond(tab-port) {
+				width: 100%;
+				margin-bottom: 2rem;
+			}
 		}
 
 		&-input {

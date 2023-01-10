@@ -1,12 +1,14 @@
-import React from 'react';
-import Header from '../layouts/header/Header';
+import React, { useEffect } from 'react';
+import Hero from '../layouts/Hero/Hero';
 import About from '../components/About/About';
 import Features from '../components/Features/Features';
-import Tours from '../components/Tours/Tours';
+import FeaturedTours from '../components/FeaturedTours/FeaturedTours';
 import Booking from '../components/Booking/Booking';
-import Footer from '../components/Footer/Footer';
-import Navbar from '../components/Navbar/Navbar';
+import Footer from '../layouts/Footer/Footer';
+import Navbar from '../layouts/Navbar/Navbar';
 import { FeatureData, TourData } from '../../src/types';
+import { useAppDispatch } from '../store/hooks';
+import { fetchTours } from '../features/tours/components/toursSlice';
 import tour1Img from '../assets/img/nat-5.jpg';
 import tour2Img from '../assets/img/nat-6.jpg';
 import tour3Img from '../assets/img/nat-7.jpg';
@@ -16,7 +18,6 @@ import tour6Img from '../assets/img/nat-10.jpg';
 import tour7Img from '../assets/img/nat-1.jpg';
 // import tour8Img from '../assets/img/nat-2.jpg';
 
-import './Home.scss';
 import Stories from '../components/Stories/Stories';
 
 const features: FeatureData[] = [
@@ -95,14 +96,16 @@ const tours: TourData[] = [
 ];
 
 const Home = () => {
+	
+
 	return (
 		<>
 			<Navbar />
-			<Header />
+			<Hero />
 			<main>
 				<About />
 				<Features features={features} />
-				<Tours tours={tours} />
+				<FeaturedTours tours={tours} />
 				<Stories />
 				<Booking />
 			</main>

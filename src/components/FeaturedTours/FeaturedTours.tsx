@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import { TourData } from '../../types';
+import { FeaturedTourData } from '../../types/models';
 import TourPopup from '../TourPopup/TourPopup';
-import Tour from './Tour/Tour';
+import Tour from './FeaturedTour';
+import { Link } from 'react-router-dom';
 
-type ToursProps = {
-	tours: TourData[];
+type FeaturedToursProps = {
+	tours: FeaturedTourData[];
 };
 
-const Tours = ({ tours }: ToursProps) => {
+const FeaturedTours = ({ tours }: FeaturedToursProps) => {
 	const [showPopup, setShowPopup] = useState(false);
-	const [popupTour, setPopupTour] = useState({} as TourData);
+	const [popupTour, setPopupTour] = useState({} as FeaturedTourData);
 
-	const handleShowPopup = (tour: TourData) => {
+	const handleShowPopup = (tour: FeaturedTourData) => {
 		if (showPopup) {
 			setShowPopup(false);
 		} else {
@@ -35,9 +36,9 @@ const Tours = ({ tours }: ToursProps) => {
 					</div>
 
 					<div className='u_center_text u_margin_top_huge'>
-						<a href='#ab' className='btn btn--green'>
+						<Link to='/all-tours' className='btn btn--green'>
 							Discover all tours
-						</a>
+						</Link>
 					</div>
 				</div>
 			</section>
@@ -47,4 +48,4 @@ const Tours = ({ tours }: ToursProps) => {
 	);
 };
 
-export default Tours;
+export default FeaturedTours;

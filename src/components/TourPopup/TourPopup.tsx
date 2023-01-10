@@ -13,18 +13,18 @@ const TourPopup = ({ show, onClose, tour }: TourPopupProps) => {
 			{show && (
 				<div className='popup'>
 					<div className='popup__content'>
+						<button
+							type='button'
+							onClick={() => onClose(tour)}
+							className='popup__close'
+						>
+							&times;
+						</button>
 						<div className='popup__left'>
 							<img src={imgs[0]} alt='Tour 1' className='popup__img' />
 							<img src={imgs[1]} alt='Tour 2' className='popup__img' />
 						</div>
 						<div className='popup__right'>
-							<button
-								type='button'
-								onClick={() => onClose(tour)}
-								className='popup__close'
-							>
-								&times;
-							</button>
 							<h2 className='heading-secondary u_margin_bottom_small'>
 								Start booking now
 							</h2>

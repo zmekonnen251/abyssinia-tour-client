@@ -1,6 +1,4 @@
-@import '../../sassStyles/abstracts/abstracts.scss';
-
-.header {
+.hero {
 	position: relative;
 	height: 95vh;
 	background-image: linear-gradient(
@@ -11,20 +9,24 @@
 		url('../../assets/img/hero.jpg');
 	background-size: cover;
 	background-position: top;
-	-webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 	clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
-	&LogoBox {
+	@include respond(phone) {
+		-webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+		clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+	}
+
+	&__logo-box {
 		position: absolute;
 		top: 4rem;
 		left: 4rem;
 	}
 
-	&Logo {
+	&__logo {
 		height: 3.5rem;
 	}
 
-	&TextBox {
+	&__text-box {
 		position: absolute;
 		top: 40%;
 		left: 50%;

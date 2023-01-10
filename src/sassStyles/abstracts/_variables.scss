@@ -17,6 +17,7 @@ $color_grey_dark: #777;
 
 $color_grey_dark_2: #999;
 $color_grey_dark_3: #333;
+$color_grey_dark_1: #444;
 
 $color_white: #fff;
 $color_black: #000;
@@ -27,8 +28,14 @@ $default_font_size: 1.6rem;
 //GRID:
 $grid_width: 114rem;
 $gutter_vertical: 8rem;
+
+@include respond(tab-port) {
+	$gutter_vertical: 6rem;
+}
+
 $gutter_horizontal: 4rem;
 
+$section-rotate: 9vw;
 //OTHER:
 // $card-image: url(../../assets/img/nat-8);
 // // $card-color-light: #fff;
@@ -37,3 +44,5 @@ $gutter_horizontal: 4rem;
 // $scale: scale(0);
 // $nav-opacity: 1;
 // $nav-width: 100%;
+
+// Media Queries

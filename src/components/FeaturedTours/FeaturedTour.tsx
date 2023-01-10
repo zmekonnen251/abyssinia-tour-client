@@ -1,12 +1,12 @@
 import React from 'react';
-import { TourData } from '../../../types';
+import { FeaturedTourData } from '../../types/models';
 
-type TourProps = {
-	tour: TourData;
-	onShow: (tour: TourData) => void;
+type FeaturedTourProps = {
+	tour: FeaturedTourData;
+	onShow: (tour: FeaturedTourData) => void;
 };
 
-const Tour = ({ tour, onShow }: TourProps) => {
+const FeaturedTour = ({ tour, onShow }: FeaturedTourProps) => {
 	const {
 		name,
 		price,
@@ -56,15 +56,15 @@ const Tour = ({ tour, onShow }: TourProps) => {
 
 	return (
 		<div className='col-1-of-3'>
-			<div className='card'>
-				<div className='card__side card__side--front card__side--front-1'>
-					<div className='card__picture' style={pictureStyle}>
+			<div className='featured-card'>
+				<div className='featured-card__side featured-card__side--front featured-card__side--front-1'>
+					<div className='featured-card__picture' style={pictureStyle}>
 						&nbsp;
 					</div>
-					<h4 className='card__heading'>
+					<h4 className='featured-card__heading'>
 						<span style={headingSpanStyle}>{name}</span>
 					</h4>
-					<div className='card__details'>
+					<div className='featured-card__details'>
 						<ul>
 							<li>{duration} day tours</li>
 							<li>Up to {maxGroupSize} people</li>
@@ -76,13 +76,13 @@ const Tour = ({ tour, onShow }: TourProps) => {
 				</div>
 
 				<div
-					className='card__side card__side--back'
+					className='featured-card__side featured-card__side--back'
 					style={backFaceColorGradient}
 				>
-					<div className='card__cta'>
-						<div className='card__price-box'>
-							<p className='card__price-only'>Only</p>
-							<p className='card__price-value'>${price}</p>
+					<div className='featured-card__cta'>
+						<div className='featured-card__price-box'>
+							<p className='featured-card__price-only'>Only</p>
+							<p className='featured-card__price-value'>${price}</p>
 						</div>
 						<button onClick={() => onShow(tour)} className='btn btn--white'>
 							Book now!
@@ -94,4 +94,4 @@ const Tour = ({ tour, onShow }: TourProps) => {
 	);
 };
 
-export default Tour;
+export default FeaturedTour;

@@ -1,10 +1,19 @@
-import logoSrc from '../../assets/img/logo-green-2x.png';
+import logoSrc2x from '../../assets/img/logo-green-2x.png';
+import logoSrc1x from '../../assets/img/logo-green-1x.png';
+import logoSrcSmall1x from '../../assets/img/logo-green-small-1x.png';
+import logoSrcSmall2x from '../../assets/img/logo-green-small-2x.png';
 
 const Footer = () => {
 	return (
 		<footer className='footer' id='footer'>
 			<div className='footer__logo-box'>
-				<img src={logoSrc} alt='Full logo' className='footer__logo' />
+				<picture className='footer__logo'>
+					<source
+						srcSet={`${logoSrcSmall1x} 1x, ${logoSrcSmall2x} 2x`}
+						media='(max-width: 37.5em)'
+					/>
+					<img srcSet={`${logoSrc1x} 1x,${logoSrc2x} 2x`} alt='Full logo' />
+				</picture>
 			</div>
 
 			<div className='row'>
