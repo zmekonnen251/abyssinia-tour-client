@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Hero from '../layouts/Hero/Hero';
 import About from '../components/About/About';
 import Features from '../components/Features/Features';
@@ -7,8 +7,6 @@ import Booking from '../components/Booking/Booking';
 import Footer from '../layouts/Footer/Footer';
 import Navbar from '../layouts/Navbar/Navbar';
 import { FeatureData, TourData } from '../../src/types';
-import { useAppDispatch } from '../store/hooks';
-import { fetchTours } from '../features/tours/components/toursSlice';
 import tour1Img from '../assets/img/nat-5.jpg';
 import tour2Img from '../assets/img/nat-6.jpg';
 import tour3Img from '../assets/img/nat-7.jpg';
@@ -96,8 +94,6 @@ const tours: TourData[] = [
 ];
 
 const Home = () => {
-	
-
 	return (
 		<>
 			<Navbar />

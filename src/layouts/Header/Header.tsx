@@ -1,28 +1,26 @@
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import logoSrc from '../../assets/img/logo-white.png';
-import { useAppSelector, useAppDispatch } from '../../store/hooks';
+import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import {
-	currentUser,
 	logout,
-	getUser,
-} from '../../features/authentication/components/authSlice';
-import { useEffect } from 'react';
+} from '../../features/authentication/authSlice';
+
+
+import PulseLoader from 'react-spinners/PulseLoader';
+import useAuth from '../../hooks/useAuth';
 
 const Header = () => {
-	const user = useAppSelector(currentUser);
+	const user = useAuth()
 	const status = useAppSelector((state) => state.auth.status);
+	console.log(status);
 
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
-	const location = useLocation();
 
-	useEffect(() => {
-		if (!user) dispatch(getUser());
-	}, [location, user, dispatch]);
 
 	const handleLogout = () => {
+		console.log('I am here')
 		dispatch(logout());
-		
 	};
 
 	if (status === 'loggedOut') {
@@ -32,41 +30,66 @@ const Header = () => {
 	return (
 		<header className='header-wrapper'>
 			<div className='header'>
-				<Link to='/tours' className='nav-el'>
-					All Tours
-				</Link>
-				<div className='logo'>
-					<Link to='/'>
-						<img src={logoSrc} className='logo-img' alt='Natours logo' />
-					</Link>
+				<div className='header-left'>
+					<div className='logo'>
+						<Link to='/'>
+							<img src={logoSrc} className='logo-img' alt='Natours logo' />
+						</Link>
+					</div>
 				</div>
+
 				<nav className='nav'>
 					<ul className='nav--user'>
-						{user && (
+						<li>
+							<Link to='/tours' className='nav-el'>
+								All Tours
+							</Link>
+						</li>
+						{user?.isLoggedIn && (
 							<>
-								<button onClick={handleLogout} className='nav-el'>
-									Log Out
-								</button>
-								<NavLink to='/profile' className='nav-el'>
-									{user.user?.name}
-								</NavLink>
-								<Link to='/profile' className='nav-el'>
-									<img
-										src={`http://localhost:5000/img/users/user-1.jpg`}
-										className='nav__user-img'
-										alt={user.user?.name}
-									/>
-								</Link>
+								<li>
+									<button onClick={handleLogout} className='nav-el'>
+										{status==='loading'? <PulseLoader color={'#55c57a'} /> : "Log Out"}
+									</button>
+								</li>
+								<li>
+									<Link
+										to={user?.isAdmin ? '/admin' : '/profile'}
+										className='nav-el'
+									>
+										<img
+											src={`${process.env.REACT_APP_PUBLIC_URL}/img/users/${user?.photo}`}
+											className='nav__user-img'
+											alt={user?.name}
+										/>
+									</Link>
+								</li>
+								<li>
+									<NavLink to={'/profile'} className='nav-el'>
+										{user?.name?.split(' ')[0]}
+									</NavLink>
+								</li>
+								{user?.isAdmin && (
+									<li>
+										<NavLink to='/dashboard' className='nav-el'>
+											Dashboard
+										</NavLink>
+									</li>
+								)}
 							</>
 						)}
-						{!user && (
+						{!user?.isLoggedIn && (
 							<>
-								<NavLink to='/login' className='nav-el'>
-									Log IN
-								</NavLink>
-								<NavLink to='/signup' className='nav-el'>
-									Sign Up
-								</NavLink>
+								<li>
+									<NavLink to='/login' className='nav-el'>
+										Log IN
+									</NavLink>
+								</li>
+								<li>
+									<NavLink to='/signup' className='nav-el signup'>
+										Sign Up
+									</NavLink>
+								</li>
 							</>
 						)}
 					</ul>

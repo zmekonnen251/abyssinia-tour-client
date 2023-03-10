@@ -1,0 +1,18 @@
+.input-images-preview-container {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	max-width: 320px;
+	height: 90px;
+	overflow: hidden;
+	padding: 1rem;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+.input-image-preview {
+	width: 90px;
+	height: 60px;
+	border-radius: 1rem;
+}

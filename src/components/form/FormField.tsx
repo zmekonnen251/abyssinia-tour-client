@@ -1,43 +1,30 @@
 import React from 'react';
-import { useFormikContext, Field } from 'formik';
-import ErrorMessage from './ErrorMessage';
+import { useFormContext } from 'react-hook-form';
+import { ErrorMessage } from '@hookform/error-message';
 
 type FormFieldProps = {
 	name: string;
 	label: string;
-	value: any;
-	error?: string;
-
-	[x: string]: any;
-	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-	onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
+	type: 'text' | 'email' | 'password' | 'number';
+	[otherProps: string]: any;
 };
 
-const FormField = ({
-	label,
-	name,
-	value,
-	onBlur,
-	onChange,
-	error,
-	...otherProps
-}: FormFieldProps) => {
+const FormField = ({ label, name, type, ...otherProps }: FormFieldProps) => {
+	const { register, formState } = useFormContext();
+	const { errors } = formState;
 	return (
 		<div className='form__group'>
-			<label htmlFor={name} className='form__label'>
-				{label}
-			</label>
 			<input
 				id={name}
 				className='form__input'
-				name={name}
-				onChange={onChange}
-				onBlur={onBlur}
-				value={value}
-				// value={values[name]}
+				type={type}
+				{...register(name)}
 				{...otherProps}
 			/>
-			<ErrorMessage error={error} visible={error ? true : false} />
+			<label htmlFor={name} className='form__label'>
+				{label}
+			</label>
+			<ErrorMessage errors={errors} name={name} as='p' />
 		</div>
 	);
 };

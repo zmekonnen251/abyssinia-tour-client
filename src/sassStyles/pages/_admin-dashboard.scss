@@ -1,0 +1,9 @@
+.admin-dashboard {
+	background-color: $color_grey_light_1;
+	display: flex;
+	max-width: 135rem;
+	margin: 9rem auto;
+	&__container {
+		flex: 6;
+	}
+}

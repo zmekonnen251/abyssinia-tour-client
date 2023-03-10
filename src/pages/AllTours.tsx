@@ -1,5 +1,5 @@
 import React from 'react';
-import Tours from '../features/tours/components/Tours';
+import Tours from '../features/tours/Tours';
 import Header from '../layouts/Header/Header';
 
 const AllTours = () => {

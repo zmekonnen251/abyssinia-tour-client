@@ -36,7 +36,7 @@ const FeaturedTours = ({ tours }: FeaturedToursProps) => {
 					</div>
 
 					<div className='u_center_text u_margin_top_huge'>
-						<Link to='/all-tours' className='btn btn--green'>
+						<Link to='/tours' className='btn btn--green'>
 							Discover all tours
 						</Link>
 					</div>

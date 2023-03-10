@@ -1,11 +1,12 @@
-import { useAppSelector } from '../../store/hooks';
+import { useAppSelector } from '../../app/hooks';
 import { Navigate, Outlet } from 'react-router-dom';
-import { currentUser } from './components/authSlice';
+// import { currentUser } from './authSlice';
+import useAuth from '../../hooks/useAuth';
 
 const ProtectedRoute = () => {
-	const user = useAppSelector(currentUser);
+	const {isLoggedIn} = useAuth();
 
-	return user ? <Outlet /> : <Navigate to='/login' />;
+	return isLoggedIn ? <Outlet /> : <Navigate to='/login' />;
 };
 
 export default ProtectedRoute;

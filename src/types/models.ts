@@ -1,51 +1,82 @@
-export type Guide = {
-	email: string;
-	name: string;
-	photo: string;
-	role: 'admin' | 'user' | 'guide' | 'lead-guide' | 'intern';
-	_id: string;
-};
-
 export type TourModel = {
+	_id: string;
 	id: string;
 	name: string;
 	duration: number;
-	durationWeeks: number;
+	durationWeeks: number | null;
 	maxGroupSize: number;
-	difficulty: string;
+	difficulty: 'easy' | 'medium' | 'difficult';
 	price: number;
-	guides: Guide[];
-	imageCover: string;
-	images: string[];
+	guides: string[] | [];
+	imageCover: string | null;
+	images: string[] | [];
 	summary: string;
-	description: string;
-	ratingsAverage: number;
-	ratingsQuantity: number;
+	description: string | null;
+	ratingsAverage: number | null;
+	ratingsQuantity: number | null;
 	startDates: string[];
-	slug: string;
-	locations: Location[];
+	slug: string | null;
+	locations: Location[] | null;
+	reviews: ReviewModel[] | null;
 	startLocation: {
 		address: string;
 		coordinates: number[];
 		description: string;
 		type: string;
-	};
+	} | null;
+	secretTour: boolean | null;
+
+	createdAt: string;
+	public: boolean;
 };
+
+// export type TourUpdateModel ={
+// 	_id: string;
+// 	id?: string;
+// 	name?: string | null;
+// 	duration?: number | null;
+// 	durationWeeks?: number | null;
+// 	maxGroupSize?: number;
+// 	difficulty?: string;
+// 	price?: number;
+// 	guides?: Guide[];
+// 	imageCover?: string;
+// 	images?: string[];
+// 	summary?: string;
+// 	description?: string;
+// 	ratingsAverage?: number;
+// 	ratingsQuantity?: number;
+// 	startDates?: Date[];
+// 	slug?: string;
+// 	locations?: Location[];
+// 	startLocation?: {
+// 		address: string;
+// 		coordinates: number[];
+// 		description: string;
+// 		type: string;
+// 	};
+// 	secretTour?: boolean;
+// 	createdAt?: string;
+// };
 
 export type User = {
 	name: string;
 	email: string;
 	photo?: string;
-	role?: 'admin' | 'user' | 'guide' | 'lead-guide';
-	_id?: string;
+	active: boolean;
+	role: 'admin' | 'user' | 'guide' | 'lead-guide' | 'intern';
+	_id: string;
+	id?: string;
+	createdAt: Date;
 };
 
 export type Location = {
+	type: string;
 	coordinates: number[];
 	address: string;
 	description: string;
 	day: number;
-	notes: string;
+	notes: string | null;
 };
 
 // export type Post = {
@@ -88,4 +119,13 @@ export type ReviewModel = {
 	review: string;
 	createdAt: string;
 	user: User;
+};
+
+export type BookingModel = {
+	_id: string;
+	tour: TourModel;
+	user: User;
+	price: number;
+	createdAt: string;
+	paid: boolean;
 };

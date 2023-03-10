@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import {
-	currentUser,
-	logout,
-} from '../../features/authentication/components/authSlice';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import {  logout } from '../../features/authentication/authSlice';
+import useAuth from '../../hooks/useAuth';
 
 const Navbar = () => {
 	const dispatch = useAppDispatch();
-	const user = useAppSelector(currentUser);
+	const user = useAuth()
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	const handleNavShow = () => {
@@ -74,7 +72,7 @@ const Navbar = () => {
 						>
 							05 &nbsp;Book now
 						</a>
-						{user?.user && (
+						{user?.isLoggedIn && (
 							<>
 								<Link to='/profile' className='navigation__link'>
 									Profile
@@ -90,7 +88,7 @@ const Navbar = () => {
 								</Link>
 							</>
 						)}
-						{!user?.user && (
+						{!user?.isLoggedIn && (
 							<>
 								<Link to='/login' className='navigation__link'>
 									Log In

@@ -1,6 +1,6 @@
 .user-view {
 	background-color: #fff;
-	max-width: 120rem;
+	max-width: 135rem;
 	margin: 9rem auto;
 	min-height: 100vh;
 	border-radius: 3px;
@@ -29,7 +29,15 @@
 	-webkit-box-flex: 1;
 	-ms-flex: 1;
 	flex: 1;
-	padding: 7rem 0;
+	padding: 2rem 0;
+}
+
+.user-view__content--bookings {
+	max-width: 85rem;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 3rem;
 }
 .user-view__form-container {
 	max-width: 68rem;
@@ -57,12 +65,12 @@
 .side-nav li:hover {
 	border-left: 4px solid #fff !important;
 }
-.side-nav--active a {
+.side-nav--active {
 	-webkit-transform: translateX(-3px);
 	transform: translateX(-3px);
 }
-.side-nav a:link,
-.side-nav a:visited {
+.side-nav li a:link,
+.side-nav li a:visited {
 	padding: 1rem 4rem;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -78,8 +86,8 @@
 	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
 }
-.side-nav a:hover,
-.side-nav a:active {
+.side-nav li a:hover,
+.side-nav li a:active {
 	-webkit-transform: translateX(3px);
 	transform: translateX(3px);
 }

@@ -1,29 +1,32 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import React from 'react';
-import { Formik, Form } from 'formik';
-import { ObjectSchema, AnyObjectSchema } from 'yup';
+import { useForm, FormProvider } from 'react-hook-form';
+import { AnyObjectSchema } from 'yup';
 
-type AppFormProps = {
+type FormProps = {
 	initialValues: any;
 	onSubmit: (values: any) => void;
 	validationSchema: AnyObjectSchema;
-	children: any;
+	children: React.ReactNode;
 };
 
-const AppForm = ({
+const Form = ({
 	initialValues,
 	onSubmit,
 	validationSchema,
 	children,
-}: AppFormProps) => {
+}: FormProps) => {
+	const methods = useForm({
+		defaultValues: {
+			...initialValues,
+		},
+		resolver: yupResolver(validationSchema),
+	});
 	return (
-		<Formik
-			initialValues={initialValues}
-			onSubmit={onSubmit}
-			validationSchema={validationSchema}
-		>
-			<Form>{children}</Form>
-		</Formik>
+		<FormProvider {...methods}>
+			<form onSubmit={methods.handleSubmit(onSubmit)}>{children}</form>
+		</FormProvider>
 	);
 };
 
-export default AppForm;
+export default Form;

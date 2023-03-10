@@ -1,15 +1,13 @@
 import axios from 'axios';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import Cookies from 'js-cookie';
 // import { apiEndPoint } from '../config.json';
 // import logger from './logService';
 
-const API = axios.create(
-	// {baseURL: apiEndPoint},
-	{
-		withCredentials: true,
-	}
-);
+const API = axios.create({
+	baseURL: 'https://abyssinia-tour.onrender.com/api/v1',
+	withCredentials: true,
+});
 
 API.interceptors.request.use(
 	(req) => {
@@ -35,6 +33,19 @@ API.interceptors.request.use(
 
 		return Promise.reject(error);
 	}
+);
+
+API.interceptors.response.use(
+	(res)=>{
+		if(res?.data?.accessToken){
+			Cookies.set('accessToken',res?.data?.accessToken);
+			console.log(Cookies.get('accessToken'));
+		}
+	return res;
+	},(error)=>{
+			console.log(error);
+		}
+	
 );
 
 export default API;
