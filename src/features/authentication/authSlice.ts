@@ -58,7 +58,7 @@ export const login = createAsyncThunk(
 	async (userData: loginData, thunkApi) => {
 		try {
 			const { email, password, navigate } = userData;
-			const {data} = await API.post('/users/login', {
+			const { data } = await API.post('/users/login', {
 				email,
 				password,
 			});
@@ -75,12 +75,19 @@ export const login = createAsyncThunk(
 	}
 );
 
+type logoutData = {
+	navigate: (path: string) => void;
+};
+
 export const logout = createAsyncThunk(
 	'users/logout',
-	async (data, thunkApi) => {
+	async (data: logoutData, thunkApi) => {
 		try {
 			const response = await API.delete('/users/logout');
-			if (response.status === 200) return null;
+			if (response.status === 200) {
+				data.navigate('/login');
+				return null;
+			}
 		} catch (err: any) {
 			// console.log(err.response.data.message);
 			return thunkApi.rejectWithValue(err.response.data.message);
@@ -256,7 +263,6 @@ export const authSlice = createSlice({
 			});
 	},
 });
-
 
 export const currentUser = (state: RootState) => state.auth.user;
 

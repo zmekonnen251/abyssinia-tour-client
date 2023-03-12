@@ -1,8 +1,8 @@
 import axios from 'axios';
 // import { toast } from 'react-toastify';
 import Cookies from 'js-cookie';
-// import { apiEndPoint } from '../config.json';
-// import logger from './logService';
+import { toast } from 'react-toastify';
+import logger from './logService';
 
 const API = axios.create({
 	baseURL: 'https://abyssinia-tour.onrender.com/api/v1',
@@ -16,8 +16,6 @@ API.interceptors.request.use(
 
 		req.headers!.Authorization = `Bearer ${data}`;
 
-		// console.log(req.headers.authorization);
-		// console.log(req);
 		return req;
 	},
 	(error) => {
@@ -27,8 +25,8 @@ API.interceptors.request.use(
 			error.response.status < 500;
 
 		if (!expectedError) {
-			console.log(error);
-			// toast.error('An unexpected error occurred.');
+			logger.log(error);
+			toast.error('An unexpected error occurred.');
 		}
 
 		return Promise.reject(error);
@@ -36,16 +34,25 @@ API.interceptors.request.use(
 );
 
 API.interceptors.response.use(
-	(res)=>{
-		if(res?.data?.accessToken){
-			Cookies.set('accessToken',res?.data?.accessToken);
-			console.log(Cookies.get('accessToken'));
+	(res) => {
+		if (res?.data?.accessToken) {
+			Cookies.set('accessToken', res?.data?.accessToken);
 		}
-	return res;
-	},(error)=>{
-			console.log(error);
+		return res;
+	},
+	(error) => {
+		const expectedError =
+			error.response &&
+			error.response.status >= 400 &&
+			error.response.status < 500;
+
+		if (!expectedError) {
+			logger.log(error);
+			toast.error('An unexpected error occurred.');
 		}
-	
+
+		return Promise.reject(error);
+	}
 );
 
 export default API;

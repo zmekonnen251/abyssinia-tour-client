@@ -1,31 +1,20 @@
-import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logoSrc from '../../assets/img/logo-white.png';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import {
-	logout,
-} from '../../features/authentication/authSlice';
-
-
+import { logout } from '../../features/authentication/authSlice';
 import PulseLoader from 'react-spinners/PulseLoader';
 import useAuth from '../../hooks/useAuth';
 
 const Header = () => {
-	const user = useAuth()
+	const user = useAuth();
 	const status = useAppSelector((state) => state.auth.status);
-	console.log(status);
 
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
 
-
 	const handleLogout = () => {
-		console.log('I am here')
-		dispatch(logout());
+		dispatch(logout({ navigate }));
 	};
-
-	if (status === 'loggedOut') {
-		navigate('/login');
-	}
 
 	return (
 		<header className='header-wrapper'>
@@ -49,7 +38,11 @@ const Header = () => {
 							<>
 								<li>
 									<button onClick={handleLogout} className='nav-el'>
-										{status==='loading'? <PulseLoader color={'#55c57a'} /> : "Log Out"}
+										{status === 'loading' ? (
+											<PulseLoader color={'#55c57a'} />
+										) : (
+											'Log Out'
+										)}
 									</button>
 								</li>
 								<li>

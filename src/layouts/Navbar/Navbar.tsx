@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import {  logout } from '../../features/authentication/authSlice';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../../app/hooks';
+import { logout } from '../../features/authentication/authSlice';
 import useAuth from '../../hooks/useAuth';
 
 const Navbar = () => {
 	const dispatch = useAppDispatch();
-	const user = useAuth()
+	const navigate = useNavigate();
+	const user = useAuth();
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	const handleNavShow = () => {
@@ -80,7 +81,7 @@ const Navbar = () => {
 								<Link
 									to='/login'
 									onClick={() => {
-										dispatch(logout());
+										dispatch(logout({ navigate }));
 									}}
 									className='navigation__link'
 								>
