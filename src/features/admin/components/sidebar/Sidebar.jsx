@@ -1,9 +1,6 @@
 import './sidebar.scss';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
-import CreditCardIcon from '@mui/icons-material/CreditCard';
-import StoreIcon from '@mui/icons-material/Store';
 import InsertChartIcon from '@mui/icons-material/InsertChart';
 import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
@@ -11,7 +8,7 @@ import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import SettingsSystemDaydreamOutlinedIcon from '@mui/icons-material/SettingsSystemDaydreamOutlined';
 import PsychologyOutlinedIcon from '@mui/icons-material/PsychologyOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useAppDispatch } from '../../../../app/hooks';
 import { logout } from '../../../authentication/authSlice';
 import { faBriefcase, faMap, faUsers } from '@fortawesome/free-solid-svg-icons';
@@ -22,16 +19,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Sidebar = () => {
 	// const { dispatch } = useContext(DarkModeContext);
 	const dispatch = useAppDispatch();
-	const location = useLocation();
-	const path = location.pathname.split('/')[2];
 	return (
 		<div className='sidebar'>
-			{/* <div className="top">
-        <Link to="/" style={{ textDecoration: "none" }}>
-          <span className="logo">lamadmin</span>
-        </Link>
-      </div>
-      <hr /> */}
 			<div className='center'>
 				<ul>
 					<p className='title'>MAIN</p>

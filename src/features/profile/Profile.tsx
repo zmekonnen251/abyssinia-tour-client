@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Header from '../../layouts/Header/Header';
-import { useAppSelector } from '../../app/hooks';
 import UpdateUserForm from './UpdateUserForm';
 import UpdatePasswordForm from './UpdatePasswordForm';
 import ProfileSideBar from './ProfileSideBar';
 import useAuth from '../../hooks/useAuth';
 
 const Profile = () => {
-	const user = useAuth()
+	const user = useAuth();
 
 	return (
 		<>

@@ -1,6 +1,5 @@
 import React from 'react';
 import './UserDetails.scss';
-import List from '../pages/list/List';
 import Chart from './chart/Chart';
 import { useAppSelector } from '../../../app/hooks';
 import { getAllUsers } from './users/usersSlice';

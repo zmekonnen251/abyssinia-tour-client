@@ -3,7 +3,6 @@ import type { RootState } from '../../app/store';
 import type { User } from '../../types/models';
 import API from '../../services/httpService';
 import { toast } from 'react-toastify';
-import decode from 'jwt-decode';
 import Cookies from 'js-cookie';
 
 // Define a type for the slice state

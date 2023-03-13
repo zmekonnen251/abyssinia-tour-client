@@ -2,7 +2,7 @@ import React from 'react';
 import ReviewForm from './ReviewForm';
 import ReviewCard from './ReviewCard';
 import CardSlider from '../../components/CardSlider';
-import { ReviewModel, User } from '../../types/models';
+import { ReviewModel } from '../../types/models';
 import useAuth from '../../hooks/useAuth';
 
 type ReviewsProps = {

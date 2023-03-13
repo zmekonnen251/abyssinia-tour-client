@@ -1,7 +1,6 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import { ErrorMessage } from '@hookform/error-message';
 
 import { FormField, SubmitButton } from '../../components/form';
 
@@ -48,7 +47,7 @@ const SignUpForm = () => {
 	if (status === 'succeed' && location.pathname === '/signup')
 		navigate('/profile');
 
-	if (status==='loading')
+	if (status === 'loading')
 		return (
 			<div
 				style={{
@@ -61,7 +60,7 @@ const SignUpForm = () => {
 			>
 				<PulseLoader color={'#55c57a'} />
 			</div>
-	);
+		);
 
 	return (
 		<div className='auth'>
