@@ -15,6 +15,7 @@
 		"@mui/material": "^5.11.4",
 		"@mui/x-data-grid": "^5.17.19",
 		"@mui/x-date-pickers": "^5.0.14",
+		"@reduxjs/toolkit": "^1.9.3",
 		"@sentry/react": "^7.42.0",
 		"@sentry/tracing": "^7.42.0",
 		"@stripe/react-stripe-js": "^1.16.1",

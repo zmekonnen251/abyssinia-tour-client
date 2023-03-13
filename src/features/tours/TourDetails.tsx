@@ -16,7 +16,6 @@ import useAuth from '../../hooks/useAuth';
 const TourDetails = () => {
 	let { tourId } = useParams();
 	const [checkoutLoading, setCheckoutLoading] = React.useState(false);
-
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
 
